@@ -1,0 +1,38 @@
+<div class="row">
+  <div class="search-container">
+    <label>Search Orders: </label>
+    <input
+      placeholder="Filter Orders"
+      [(ngModel)]="searchTerm" />
+  </div>
+</div>
+<div *ngIf="!orders.length">
+  <h2>No Orders!</h2>
+</div>
+<div
+  tuiAppearance="floating"
+  tuiCardLarge
+  *ngFor="let order of filteredOrders"
+>
+  <div tuiCell="l">
+    <tui-avatar
+      appearance="primary"
+      src="@tui.star"
+    />
+    <div tuiTitle>
+      <strong>Order {{ order.Order_ID }}</strong> <span>Table: {{ order.Table_No }}</span>
+      <div tuiSubtitle>
+        {{ order.Size }} {{ order.Crust }} {{ order.Flavor }}
+      </div>
+    </div>
+  </div>
+  <button
+    appearance="secondary"
+    size="m"
+    tuiButton
+    type="button"
+    (click)="cancelOrder(order.Order_ID)"
+  >
+    Cancel Order
+  </button>
+</div>

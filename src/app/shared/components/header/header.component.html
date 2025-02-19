@@ -1,0 +1,30 @@
+<header tuiNavigationHeader>
+    <span tuiNavigationLogo>
+        Pizza Time
+    </span>
+  <button
+    tuiButton
+    type="button"
+    routerLink="/menu"
+  >
+    Menu
+  </button>
+  <button
+    tuiButton
+    type="button"
+    routerLink="/orders"
+  >
+    Orders
+  </button>
+  <button
+    *ngIf="isAuthenticated"
+    tuiButton
+    tuiChevron
+    type="button"
+    appearance="secondary"
+    (click)="onLogout()"
+  >
+    Logout
+  </button>
+</header>
+

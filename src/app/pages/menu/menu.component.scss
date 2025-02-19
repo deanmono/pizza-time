@@ -1,0 +1,29 @@
+section {
+  display: flex;
+  block-size: 3.125rem;
+  border-radius: 0.75rem;
+  justify-content: center;
+  align-items: center;
+  color: var(--tui-text-secondary);
+  border: 1px dashed;
+}
+.label {
+  font: var(--tui-font-text-l);
+}
+.view-orders {
+  margin-left: 1rem;
+}
+.error-message {
+  margin-top: 0.5rem;
+  padding-left: 1rem;
+}
+
+.text-error {
+  color: var(--tui-error-fill);
+  display: block;
+  font-size: 0.75rem;
+}
+
+.group {
+  margin-bottom: 1rem;
+}

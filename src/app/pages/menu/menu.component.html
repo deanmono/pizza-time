@@ -1,0 +1,97 @@
+<div tuiAppearance="floating" tuiCardLarge>
+  <header tuiHeader>
+    <h2 tuiTitle>Crust</h2>
+  </header>
+
+  <div>
+    <form orientation="horizontal" tuiGroup class="group" [collapsed]="true" [formGroup]="menuForm">
+      <label tuiBlock [style.justify-content]="'space-between'" *ngFor="let crust of crustOptions">
+        {{crust | titlecase}}
+        <input formControlName="Crust" tuiRadio type="radio" [value]="crust" />
+      </label>
+      <div *ngIf="Crust.touched && Crust.invalid" class="error-message">
+        <small class="text-error" *ngFor="let error of getErrorMessage('Crust')">
+          {{error}}
+        </small>
+      </div>
+    </form>
+  </div>
+
+  <header tuiHeader>
+    <h2 tuiTitle>Flavor</h2>
+  </header>
+
+  <div>
+    <form orientation="horizontal" tuiGroup class="group" [collapsed]="true" [formGroup]="menuForm">
+      <label tuiBlock [style.justify-content]="'space-between'" *ngFor="let flavor of flavorOptions">
+        {{flavor | titlecase}}
+        <input formControlName="Flavor" tuiRadio type="radio" [value]="flavor" />
+      </label>
+      <div *ngIf="Flavor.touched && Flavor.invalid" class="error-message">
+        <small class="text-error" *ngFor="let error of getErrorMessage('Flavor')">
+          {{error}}
+        </small>
+      </div>
+    </form>
+  </div>
+
+  <header tuiHeader>
+    <h2 tuiTitle>Size</h2>
+  </header>
+
+  <div>
+    <form orientation="horizontal" tuiGroup class="group" [collapsed]="true" [formGroup]="menuForm">
+      <label tuiBlock [style.justify-content]="'space-between'" *ngFor="let size of sizeOptions">
+        {{size | titlecase}}
+        <input formControlName="Size" tuiRadio type="radio" [value]="size" />
+      </label>
+      <div *ngIf="Size.touched && Size.invalid" class="error-message">
+        <small class="text-error" *ngFor="let error of getErrorMessage('Size')">
+          {{error}}
+        </small>
+      </div>
+    </form>
+  </div>
+
+  <header tuiHeader>
+    <h2 tuiTitle>Table Number</h2>
+  </header>
+
+  <div>
+    <form orientation="horizontal" tuiGroup class="group" [collapsed]="true" [formGroup]="menuForm">
+      <label tuiBlock [style.justify-content]="'space-between'" *ngFor="let num of tableNumbers">
+        {{num}}
+        <input formControlName="Table_No" tuiRadio type="radio" [value]="num" />
+      </label>
+      <div *ngIf="Table_No.touched && Table_No.invalid" class="error-message">
+        <small class="text-error" *ngFor="let error of getErrorMessage('Table_No')">
+          {{error}}
+        </small>
+      </div>
+    </form>
+  </div>
+
+  <footer>
+    <button
+      appearance="primary"
+      size="m"
+      tuiButton
+      type="button"
+      [disabled]="menuForm.invalid || orderSuccess"
+      (click)="onSubmit()"
+    >
+      Place Order
+    </button>
+
+    <button
+      appearance="secondary"
+      size="m"
+      tuiButton
+      type="button"
+      class="view-orders"
+      routerLink="/orders"
+    >
+      View Orders
+    </button>
+  </footer>
+</div>
